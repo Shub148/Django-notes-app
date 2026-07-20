@@ -1,12 +1,16 @@
 version: "3.8"
 
 services:
+ web:
+   image: "docker push shub800/notes-app:tagname"
+   ports :
+     - "8000:8000"
   nginx:
     build: ./nginx
     image: nginx
     container_name: "nginx_cont"
     ports:
-      - "80:80"
+      - "8000:8000"
     restart: always
     depends_on:
       - django_app
